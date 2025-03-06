@@ -3,9 +3,17 @@ public class Exercises {
     /*
         complete this function to check if the input number is prime or not
      */
-    public boolean isPrime(long n) {
+    public boolean isPrime(long n)
+    {
         // todo
-        return false;
+        if (n%2==0) return false;
+        int count = 0;
+        for (int i = 3; i < n*n; i += 2)
+        {
+            if (n % i == 0) count++;
+        }
+        if (count != 0)return false;
+        else return true;
     }
 
     /*
@@ -16,6 +24,16 @@ public class Exercises {
      */
     public long fibonacciIndex(long n) {
         // todo
+        if (n<0) return -1;
+        int a = 0, b = 1, index= 0;
+        while (a <= n)
+        {
+            if (a == n) return index;
+            int temp = a + b;
+            a = b;
+            b = temp;
+            index++;
+        }
         return -1;
     }
 
@@ -37,12 +55,27 @@ public class Exercises {
 
         the output has to be a two-dimensional array of characters, so don't just print the triangle!
      */
-    public char[][] generateTriangle(int n) {
+    public char[][] generateTriangle(int n)
+    {
         // todo
-        return null;
+        char[][] triangle = new char[n][];
+        for (int i = 0; i < n; i++){
+            triangle[i] = new char[i+1];
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0 + 1; j <= n; j++){
+                if (j == 0 || j == i || i == n - 1){
+                    triangle[i][j] = '*';
+                } else {
+                    triangle[i][j] = ' ';
+                }
+            }
+        }
+        return triangle;
     }
 
     public static void main(String[] args) {
-        // you can test your code here, but then it should be checked with test cases
+//System.out.println("Index of 7 in fibo is :" + ex.fibonacciIndex(7));
     }
 }
