@@ -8,7 +8,7 @@ public class Exercises {
         // todo
         if (n%2==0) return false;
         int count = 0;
-        for (int i = 3; i < n*n; i += 2)
+        for (int i = 3; i * i <= n; i += 2)
         {
             if (n % i == 0) count++;
         }
@@ -64,7 +64,7 @@ public class Exercises {
         }
 
         for (int i = 0; i < n; i++){
-            for (int j = 0 + 1; j <= n; j++){
+            for (int j = 0; j <= i; j++){
                 if (j == 0 || j == i || i == n - 1){
                     triangle[i][j] = '*';
                 } else {
@@ -76,6 +76,15 @@ public class Exercises {
     }
 
     public static void main(String[] args) {
-//System.out.println("Index of 7 in fibo is :" + ex.fibonacciIndex(7));
+     System.out.println("Index of 7 in fibo is :" + new Exercises().fibonacciIndex(34) + "\n");
+     char[][] m = new Exercises().generateTriangle(7);
+     for (int i = 0; i < 7; i++){
+         for (int j = 0; j <= i; j++){
+             System.out.print(m[i][j]);
+         }
+         System.out.print("\n");
+     }
+
+
     }
 }
